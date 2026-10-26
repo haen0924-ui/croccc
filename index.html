@@ -216,6 +216,8 @@ h2{
   line-height:1.6;
 }
 .svc .loc{color:var(--ink)}
+.svc .row{display:grid;grid-template-columns:auto 1fr;column-gap:6px;align-items:start}
+.svc .desc{min-width:0}
 .svc .name{font-weight:700;color:var(--brand-dark)}
 .btn{
   display:inline-block;
@@ -738,7 +740,7 @@ function pageFor(id){
     const m = s.match(/^([^:(（]+)([:(（])(.*)$/);
     const name = m ? m[1].trim() : "";
     const rest = m ? m[3].replace(/[()（）]/g, "").trim() : s;
-    const body = m ? `<span class="name">${name}</span>: ${rest}` : s;
+    const body = m ? `<span class="row"><span class="name">${name}:</span><span class="desc">${rest}</span></span>` : s;
     return `<li><span class="loc">${body}</span>${showKo ? `<span class="ko"><span class="ko-tag">한국어</span>${KO.services[i]}</span>` : ""}</li>`;
   }).join("");
 
