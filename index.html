@@ -94,10 +94,13 @@ header{
 /* 휴대폰에서는 가로로 밀어서 보기 */
 @media (max-width:760px){
   .flags{
-    grid-template-columns:repeat(15,64px);
-    overflow-x:auto;
-    -webkit-overflow-scrolling:touch;
+    grid-template-columns:repeat(5,1fr);
+    gap:6px 4px;
+    padding:8px 8px;
   }
+  .flag{font-size:12px}
+  .flag img{width:44px}
+  header{position:static}
 }
 
 /* 본문 */
@@ -276,7 +279,7 @@ const KO = {
   elig: "만 18세 미만의 아동(외국인, 미등록 아동 포함)",
   op: "시·군·구에 등록된 지역아동센터",
   opNote: "정부24(plus.gov.kr) 돌봄시설 등 위치 찾기 메뉴에서 우리 동네 지역아동센터 확인 가능",
-  hours: "필수 운영시간 · 학기중 14:00~20:00 / 방학중 13:00~18:00",
+  hours: "필수 운영시간 · 학기중 14:00~20:00 · 방학중 13:00~18:00",
   fee: "무료",
   feeNote: "일반아동에 한해 지역여건 및 센터 사정을 고려하여 이용료가 발생 할 수 있습니다.",
   general: "*일반아동(저소득층, 차상위, 장애인, 다문화, 한부모, 조손가정이 아닌 가정의 아동)",
@@ -714,7 +717,7 @@ function pageFor(id){
 
       <div class="card">
         <h3>${data.L[2]}${showKo ? ' <span style="font-weight:400;color:#8a98a8">(이용시간)</span>' : ""}</h3>
-        <p>${data.v.hours}</p>
+        <p>${data.v.hours.replace(/ · /g, "<br>")}</p>
         ${koLine(KO.hours)}
       </div>
 
@@ -731,8 +734,8 @@ function pageFor(id){
   const svcTitle = `<h2>${data.L[4]}${showKo ? ' <span style="font-size:14px;color:#8a98a8;font-weight:400">(서비스내용)</span>' : ""}</h2>`;
   const svcItems = data.v.services.map((s, i) => {
     const m = s.match(/^([^:(（]+)([:(（])(.*)$/);
-    const name = m ? m[1] : "";
-    const rest = m ? (m[2] === ":" ? m[3] : m[2] + m[3]) : s;
+    const name = m ? m[1].trim() : "";
+    const rest = m ? m[3].replace(/[()（）]/g, "").trim() : s;
     const body = m ? `<span class="name">${name}</span>: ${rest}` : s;
     return `<li><span class="loc">${body}</span>${showKo ? `<span class="ko"><span class="ko-tag">한국어</span>${KO.services[i]}</span>` : ""}</li>`;
   }).join("");
