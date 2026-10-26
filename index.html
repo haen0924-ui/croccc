@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지역아동센터 홍보</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans:wght@400;500;700&family=Noto+Sans+Thai:wght@400;700&family=Noto+Sans+Khmer:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&family=Noto+Sans+SC:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f9fd;
+  --card:#ffffff;
+  --ink:#1f2d3d;
+  --sub:#5b6b7d;
+  --muted:#8a98a8;
+  --brand:#2563eb;
+  --brand-dark:#1e4fb8;
+  --brand-soft:#e6f0ff;
+  --accent:#ff8a3d;
+  --line:#e2e9f2;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Noto Sans KR","Noto Sans",system-ui,-apple-system,sans-serif;
+  line-height:1.65;
+  font-size:16px;
+  overflow-x:hidden;
+}
+a{color:var(--brand)}
+
+/* 상단 국기 바 */
+header{
+  position:sticky;top:0;z-index:10;
+  background:#ffffff;
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 8px rgba(30,60,100,.05);
+}
+.flags{
+  display:grid;
+  grid-template-columns:repeat(15,1fr);
+  gap:4px;
+  padding:8px 12px;
+  max-width:1200px;margin:0 auto;
+}
+.flags::-webkit-scrollbar{height:4px}
+.flags::-webkit-scrollbar-thumb{background:#c8d6e6;border-radius:4px}
+.flag{
+  min-width:0;
+  padding:5px 2px 4px;
+  border:2px solid transparent;
+  border-radius:12px;
+  background:transparent;
+  text-align:center;
+  text-decoration:none;
+  color:var(--sub);
+  font-size:11px;
+  line-height:1.3;
+  white-space:nowrap;
+  transition:background .15s,border-color .15s;
+}
+.flag:hover{background:#f0f6ff}
+.flag img{
+  display:block;
+  width:40px;height:auto;
+  margin:0 auto 4px;
+  border-radius:4px;
+  box-shadow:0 1px 3px rgba(0,0,0,.18);
+}
+.flag[aria-current="true"]{
+  border-color:var(--brand);
+  background:var(--brand-soft);
+  color:var(--brand-dark);
+  font-weight:700;
+}
+
+/* 휴대폰에서는 가로로 밀어서 보기 */
+@media (max-width:760px){
+  .flags{
+    grid-template-columns:repeat(15,64px);
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+
+/* 본문 */
+main{
+  max-width:860px;
+  margin:0 auto;
+  padding:24px 16px 40px;
+}
+.hero{
+  background:linear-gradient(135deg,#ffffff 0%,#e6f0ff 100%);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:28px 24px;
+  box-shadow:0 4px 16px rgba(30,60,100,.06);
+}
+.kicker{
+  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  font-size:13px;font-weight:700;
+  padding:3px 10px;border-radius:999px;
+  margin-bottom:10px;
+}
+h1{
+  font-size:30px;line-height:1.3;
+  margin:0 0 10px;
+  color:#17448f;
+}
+.lead{
+  font-size:17px;
+  color:var(--sub);
+  margin:0;
+}
+h2{
+  font-size:20px;
+  margin:28px 0 12px;
+  color:var(--ink);
+}
+.lang-head{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:16px;
+}
+.lang-head img{
+  width:84px;height:auto;
+  border-radius:6px;
+  box-shadow:0 1px 4px rgba(0,0,0,.2);
+  flex:0 0 auto;
+}
+.lang-head .sub{color:var(--sub);font-size:14px;margin-top:4px}
+.lang-head h1{font-size:26px;margin:0}
+.back{
+  display:inline-block;
+  margin-bottom:14px;
+  font-size:14px;
+  text-decoration:none;
+  color:var(--brand);
+}
+.intro{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:5px solid var(--accent);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  margin:0 0 14px;
+  font-size:17px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+@media (min-width:640px){
+  .grid{grid-template-columns:1fr 1fr}
+  .grid .wide{grid-column:1 / -1}
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  box-shadow:0 2px 10px rgba(30,60,100,.05);
+}
+.card h3{
+  margin:0 0 8px;
+  font-size:15px;
+  color:var(--brand-dark);
+}
+.card p{margin:0 0 6px;font-size:16px}
+.card p:last-child{margin-bottom:0}
+.ko{
+  display:block;
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px dashed var(--line);
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+.ko-tag{
+  font-weight:700;
+  margin-right:4px;
+}
+.svc{margin:0;padding:0;list-style:none}
+.svc li{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:12px 16px;
+  margin-bottom:10px;
+  font-size:15px;
+  line-height:1.6;
+}
+.svc .loc{color:var(--ink)}
+.svc .name{font-weight:700;color:var(--brand-dark)}
+.btn{
+  display:inline-block;
+  margin-top:12px;
+  background:var(--brand);
+  color:#fff !important;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:10px;
+  font-weight:500;
+  font-size:15px;
+}
+.btn:hover{background:var(--brand-dark)}
+footer{
+  text-align:center;
+  color:var(--sub);
+  font-size:13px;
+  padding:20px 16px 32px;
+}
+@media (max-width:480px){
+  h1{font-size:25px}
+  .lang-head img{width:64px}
+  .lang-head h1{font-size:21px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="flags" id="flags" aria-label="나라별 안내 선택"></nav>
+</header>
+
+<main id="app"></main>
+
+<footer id="footer">
+  지역아동센터 홍보 페이지 · 국기를 누르면 해당 언어의 안내를 볼 수 있습니다.
+</footer>
+
+<script>
+/* ===== 국기 목록 ===== */
+const FLAGS = [
+  { id:"ko", flag:"kr", ko:"한국어" },
+  { id:"ky", flag:"kg", ko:"키르기스" },
+  { id:"mn", flag:"mn", ko:"몽골" },
+  { id:"kk", flag:"kz", ko:"카자흐" },
+  { id:"th", flag:"th", ko:"태국" },
+  { id:"ne", flag:"np", ko:"네팔" },
+  { id:"km", flag:"kh", ko:"캄보디아" },
+  { id:"ru", flag:"ru", ko:"러시아" },
+  { id:"zh", flag:"cn", ko:"중국" },
+  { id:"uz", flag:"uz", ko:"우즈벡" },
+  { id:"ja", flag:"jp", ko:"일본" },
+  { id:"id", flag:"id", ko:"인도네시아" },
+  { id:"vi", flag:"vn", ko:"베트남" },
+  { id:"tl", flag:"ph", ko:"필리핀" },
+  { id:"en", flag:"us", ko:"영어" }
+];
+
+/* ===== 한국어 원문 (첨부 자료 그대로) ===== */
+const KO = {
+  intro: "지역아동센터는 방과후 돌봄이 필요한 지역사회 아동의 건전육성을 위하여 보호와 교육, 건전한 놀이와 오락의 제공, 보호자와의 지역사회 연계 등의 종합적 복지서비스를 제공하는 아동복지시설입니다.",
+  elig: "만 18세 미만의 아동(외국인, 미등록 아동 포함)",
+  op: "시·군·구에 등록된 지역아동센터",
+  opNote: "정부24(plus.gov.kr) 돌봄시설 등 위치 찾기 메뉴에서 우리 동네 지역아동센터 확인 가능",
+  hours: "필수 운영시간 · 학기중 14:00~20:00 / 방학중 13:00~18:00",
+  fee: "무료",
+  feeNote: "일반아동에 한해 지역여건 및 센터 사정을 고려하여 이용료가 발생 할 수 있습니다.",
+  general: "*일반아동(저소득층, 차상위, 장애인, 다문화, 한부모, 조손가정이 아닌 가정의 아동)",
+  services: [
+    "보호 (일상생활 및 위생건강관리, 급식, 생활안전 및 귀가지도)",
+    "교육 (숙제 및 교과학습지도, 특기적성, 인성교육, 진로 등)",
+    "문화 (체험활동, 참여활동)",
+    "정서 (아동 및 부모상담, 정서지원 프로그램, 부모교육)",
+    "지역사회연계 (홍보 및 아동 욕구에 맞는 서비스 연계)",
+    "야간연장돌봄 (18:00 이후 이용을 희망하는 초등학생 아동)",
+    "틈새돌봄 (방학 중 이용을 희망하는 초등학생 아동)"
+  ]
+};
+const KO_LABELS = ["이용대상", "운영기관", "이용시간", "이용료", "서비스내용"];
+
+/* ===== 나라별 안내 (첨부 자료 원문의 해당 언어 부분) =====
+   L = 각 항목 제목, v = 본문. 한국어 원문은 KO에서 함께 표시됩니다. */
+const C = {
+
+  ky: {
+    native:"Кыргызча", ko:"키르기스어",
+    title:"Аймактык балдар борбору",
+    intro:"Аймактык балдар борбору — мектептен кийинки убакта камкордукка муктаж болгон жергиликтүү балдардын дени сак өсүп-өнүгүүсүнө көмөктөшүүчү балдарды коргоо жана социалдык кызмат көрсөтүү мекемеси.",
+    L:["Кимдер пайдалана алат","Иштеген мекемелер","Иштөө убактысы","Төлөм","Кызмат көрсөтүү"],
+    v:{
+      elig:"18 жашка толо элек балдар (чет өлкөлүк жарандардын балдары жана документтери жок балдар да кирет)",
+      op:"Шаар/район/округ тарабынан катталган аймактык балдар борборлору",
+      opNote:"Өзүңүз жашаган аймактагы балдар борборлорун 정부24 (Government24) сайтындагы «Камкордук мекемелеринин жайгашкан жерин издөө» бөлүмүнөн табууга болот.",
+      hours:"Иштөө убактысы: Окуу мезгилинде 14:00–20:00 · Каникул учурунда 13:00–18:00",
+      fee:"Төлөмү: Акысыз.",
+      feeNote:"Бирок жалпы категориядагы балдар үчүн жергиликтүү шарттарга жана борбордун мүмкүнчүлүктөрүнө жараша белгилүү өлчөмдө төлөм алынуусу мүмкүн.",
+      general:"Жалпы балдар (аз камсыз болбогон, жакырчылыкка жакын эмес, майып эмес, көп улуттуу эмес, жалгыз бой ата же эне, же чоң ата, чоң энелердин колунда чоңойгон эмес балдар)",
+      services:[
+        "Коргоо жана камкордук: күнүмдүк жашоого жардам берүү, жеке гигиена жана ден соолукту көзөмөлдөө, тамак-аш менен камсыз кылуу, коопсуздукту камсыздоо жана үйүнө коопсуз кайтуусун көзөмөлдөө",
+        "Билим берүү: үй тапшырмаларын аткарууга жардам берүү, мектептеги сабактар боюнча окууга көмөктөшүү, баланын жөндөмүнө жана кызыгуусуна жараша кошумча сабактар, инсандык тарбия берүү, келечектеги кесип тандоого багыт берүү ж.б.",
+        "Маданият: тажрыйба жана маданий иш-чараларга катышуу, ар кандай коомдук/чыгармачылык иш-чараларга катыштыруу",
+        "Эмоционалдык колдоо: бала жана ата-эне менен консультация өткөрүү, эмоционалдык колдоо көрсөтүүчү программалар, ата-энелер үчүн окутуу",
+        "Жергиликтүү коомчулук менен байланыш: борбор тууралуу маалымат таратуу жана баланын муктаждыктарына ылайык керектүү кызматтарга же мекемелерге байланыштыруу",
+        "Кечки убакытка чейин узартылган камкордук: саат 18:00дөн кийин да борбордун кызматынан пайдаланууну каалаган башталгыч класстын окуучулары үчүн",
+        "Бош убакыттагы кошумча камкордук: каникул учурунда борбордун кызматынан пайдаланууну каалаган башталгыч класстын окуучулары үчүн"
+      ]
+    }
+  },
+
+  mn: {
+    native:"Монгол хэл", ko:"몽골어",
+    title:"Орон нутгийн хүүхэд хамгаалал, халамжийн төв",
+    intro:"Хичээлийн дараах асаргаа шаардлагатай орон нутгийн хүүхдүүдийн эрүүл өсөлт, хөгжлийг дэмжих зорилгоор хамгаалалт, боловсрол, эрүүл хооллолт, төрөл бүрийн тоглоом үйл ажиллагаа, асран хамгаалалттай холбоотой цогц халамжийн үйлчилгээ үзүүлдэг хүүхдийн халамжийн байгууллага юм.",
+    L:["Хамрагдах хүүхэд","Үйл ажиллагаа эрхлэгч","Үйлчилгээний цаг","Үйлчилгээний төлбөр","Үйлчилгээ"],
+    v:{
+      elig:"18 нас хүрээгүй хүүхэд (гадаад иргэншил болон визгүй хүүхэд хамрагдана)",
+      op:"Хот, аймаг, дүүрэг харьяалалын дагуух орон нутгийн хүүхэд халамжийн төв",
+      opNote:"Gov24 (plus.gov.kr) сайтаас хүүхэд харах төв болон байршил хайх хэсгээс өөрийн харьяа дүүргийн хүүхэд халамжийн төвийг хайх боломжтой.",
+      hours:"Хичээлийн үед 14:00–20:00 · Сургуулийн амралтаар 13:00–18:00",
+      fee:"Үнэгүй",
+      feeNote:"Тухайн орон нутаг болон төвийн нөхцөл байдлаас шалтгаалж тодорхой хэмжээний төлбөр гарч магадгүй.",
+      general:"Энгийн хүүхэд (бага орлоготой өрх, эмзэг давхрагын өрх, хөгжлийн бэрхшээлтэй, олон соёлт гэр бүл, өрх толгойлсон, өвөө эмээ нь асран халамжилдаг гэр бүлд хамаарахгүй хүүхэд)",
+      services:[
+        "Хамгаалалт: өдөр тутмын амьдрал, эрүүл ахуй, хооллолт, аюулгүй байдал болон гэртээ харих зааварчилгаа",
+        "Сургалт: даалгавар болон хичээлийн давтлага, авьяас чадвар, ёс суртахуун, чиглүүлэх гэх мэт",
+        "Соёл: туршлагын болон оролцооны үйл ажиллагаа",
+        "Сэтгэл зүй: хүүхэд болон эцэг эхийн зөвлөгөө, сэтгэл санааны дэмжлэг, эцэг эхийн сургалт",
+        "Орон нутгийн хамтын ажиллагаа: сурталчилгаа болон хүүхдийн хэрэгцээнд нийцсэн үйлчилгээнд зуучлах",
+        "Оройн цаг сунгасан үйлчилгээ: 18:00 цагаас хойш хамрагдахыг хүссэн бага ангийн сурагчид",
+        "Амралтын үеийн үйлчилгээ: сургуулийн амралтын үед хамрагдахыг хүссэн бага ангийн сурагчид"
+      ]
+    }
+  },
+
+  kk: {
+    native:"Қазақша", ko:"카자흐어",
+    title:"Балаларға арналған жергілікті орталық",
+    intro:"Балаларға арналған жергілікті орталық — сабақтан кейін қамқорлыққа мұқтаж жергілікті қоғамдастықтағы балалардың дені сау әрі дұрыс өсіп-жетілуіне жағдай жасайтын балалардың әл-ауқатын қорғау мекемесі.",
+    L:["Қызметті пайдаланушылар","Қызмет көрсететін мекеме","Қызмет уақыты","Қызмет ақысы","Қызметтер"],
+    v:{
+      elig:"18 жасқа толмаған балалар (шетелдік балаларды және құжаттары тіркелмеген балаларды қоса алғанда)",
+      op:"Қала, уезд, аудан әкімшілігінде тіркелген балаларға арналған жергілікті орталықтар",
+      opNote:"Government24 (plus.gov.kr) сайтындағы «Күтім көрсету мекемелерінің орналасқан жерін іздеу» бөлімі арқылы өзіңіз тұратын жердегі балаларға арналған жергілікті орталықтарды табуға болады.",
+      hours:"Міндетті жұмыс уақыты: оқу кезінде 14:00–20:00 · каникул кезінде 13:00–18:00",
+      fee:"Тегін",
+      feeNote:"Жалпы санаттағы балалар үшін жергілікті жағдайға және орталықтың мүмкіндіктеріне қарай қызмет ақысы алынуы мүмкін.",
+      general:"Жалпы балалар (табысы төмен емес, кедейшілікке жақын емес, мүгедек емес, көпұлтты емес, жалғызбасты ата-ана немесе ата-әже тәрбиелеген отбасылардан шыққан емес балалар)",
+      services:[
+        "Қамқорлық: күнделікті өмірі мен тазалық-гигиенасын, денсаулығын бақылау, тамақпен қамтамасыз ету, қауіпсіздігін сақтау және үйіне қайтуын бақылау",
+        "Білім беру: үй тапсырмасын орындауға көмектесу, пәндер бойынша оқуға қолдау көрсету, қабілеті мен қызығушылығына қарай қосымша білім беру, тұлғалық тәрбие, мамандық таңдауға бағыт-бағдар беру және т.б.",
+        "Мәдениет: тәжірибелік іс-шаралар мен түрлі қатысу іс-шараларын ұйымдастыру",
+        "Эмоционалдық қолдау: балалар мен ата-аналарға кеңес беру, эмоционалдық қолдау бағдарламалары, ата-аналарға арналған оқыту",
+        "Жергілікті қоғамдастықпен байланыс: ақпараттық түсіндіру жұмыстарын жүргізу және баланың қажеттіліктеріне сәйкес тиісті қызметтермен байланыстыру",
+        "Кешкі ұзартылған қамқорлық: 18:00-ден кейін орталық қызметін пайдаланғысы келетін бастауыш сынып оқушыларына арналған",
+        "Қосымша уақыттағы қамқорлық: каникул кезінде орталық қызметін пайдаланғысы келетін бастауыш сынып оқушыларына арналған"
+      ]
+    }
+  },
+
+  th: {
+    native:"ไทย", ko:"태국어",
+    title:"ศูนย์เด็กในพื้นที่",
+    intro:"ศูนย์เด็กในพื้นที่คือสถานสงเคราะห์เด็กที่ให้บริการสวัสดิการแบบครบวงจรแก่เด็กในชุมชนที่ต้องการการดูแลหลังเลิกเรียน เพื่อส่งเสริมสุขภาพและพัฒนาการของเด็ก โดยให้การดูแล การศึกษา การเล่นและกิจกรรมนันทนาการที่เหมาะสม รวมถึงเชื่อมโยงกับผู้ปกครองและหน่วยงานในชุมชน",
+    L:["ผู้ที่ใช้บริการได้","หน่วยงานที่ดำเนินการ","เวลาให้บริการ","ค่าใช้จ่าย","บริการ"],
+    v:{
+      elig:"เด็กอายุต่ำกว่า 18 ปี (รวมถึงเด็กต่างชาติและเด็กที่ยังไม่ได้ลงทะเบียน)",
+      op:"ศูนย์เด็กในพื้นที่ที่ลงทะเบียนกับเมือง/อำเภอ/เขต",
+      opNote:"สามารถตรวจสอบศูนย์เด็กในพื้นที่ใกล้บ้านได้ผ่านเมนูค้นหาสถานที่ของ Government24 (plus.gov.kr)",
+      hours:"ช่วงเปิดภาคเรียน 14:00–20:00 น. · ช่วงปิดภาคเรียน 13:00–18:00 น.",
+      fee:"ฟรี",
+      feeNote:"สำหรับเด็กทั่วไปอาจมีค่าใช้จ่ายตามสภาพพื้นที่และสถานการณ์ของศูนย์",
+      general:"เด็กจากครอบครัวทั่วไป (ไม่ใช่ครอบครัวที่มีรายได้น้อย ครอบครัวที่มีรายได้น้อยระดับรอง ครอบครัวที่มีสมาชิกพิการ ครอบครัวที่มีสมาชิกต่างสัญชาติ ครอบครัวเลี้ยงเดี่ยว หรือครอบครัวที่ปู่ย่าตายายเป็นผู้เลี้ยงดูเด็ก)",
+      services:[
+        "การดูแล: ดูแลชีวิตประจำวัน สุขอนามัยและสุขภาพ การรับประทานอาหาร ความปลอดภัยในชีวิตประจำวัน และการดูแลให้เดินทางกลับบ้านอย่างปลอดภัย",
+        "การศึกษา: ช่วยดูแลการบ้านและการเรียนเสริมวิชาต่าง ๆ การศึกษาสำหรับเด็กที่มีความสามารถพิเศษ การอบรมด้านบุคลิกภาพ และการแนะแนวอาชีพ",
+        "วัฒนธรรม: กิจกรรมประสบการณ์ต่าง ๆ และกิจกรรมการมีส่วนร่วม",
+        "ด้านอารมณ์: ให้คำปรึกษาเด็กและผู้ปกครอง โปรแกรมช่วยเหลือด้านอารมณ์ และการอบรมผู้ปกครอง",
+        "เชื่อมโยงกับชุมชน: ประชาสัมพันธ์และเชื่อมโยงบริการที่เหมาะกับความต้องการของเด็ก",
+        "บริการต่อเวลาตอนเย็น: เด็กประถมที่ต้องการใช้บริการหลัง 18:00 น.",
+        "บริการช่วงปิดภาคเรียน: เด็กประถมที่ต้องการใช้บริการในช่วงปิดภาคเรียน"
+      ]
+    }
+  },
+
+  ne: {
+    native:"नेपाली", ko:"네팔어",
+    title:"सामुदायिक बाल केन्द्र",
+    intro:"सामुदायिक बाल केन्द्रहरू बाल कल्याण सुविधाहरू हुन् जसले स्कूल पछि हेरचाह आवश्यक पर्ने स्थानीय बालबालिकाको स्वस्थ विकासको लागि सुरक्षा र शिक्षा, स्वस्थ खेल र मनोरञ्जन, र अभिभावकहरूसँग सामुदायिक सम्बन्ध जस्ता व्यापक कल्याणकारी सेवाहरू प्रदान गर्दछ।",
+    L:["योग्यता","सञ्चालन गर्ने निकाय","सञ्चालन समय","शुल्क","सेवाहरू"],
+    v:{
+      elig:"18 वर्ष मुनिका बालबालिका (विदेशी र कागजात नभएका बालबालिका सहित)",
+      op:"शहर, काउन्टी वा जिल्लामा दर्ता भएका सामुदायिक बाल केन्द्रहरू",
+      opNote:"Government24 (plus.gov.kr) को 'हेरचाह सुविधाहरूको लागि स्थानहरू खोज्नुहोस्' मेनुमार्फत आफ्नो छिमेकका सामुदायिक बाल केन्द्रहरू जाँच गर्न सक्नुहुन्छ।",
+      hours:"सेमेस्टरको समयमा 14:00–20:00 · बिदाको समयमा 13:00–18:00",
+      fee:"नि:शुल्क",
+      feeNote:"सामान्य बालबालिकाका लागि स्थानीय अवस्था र केन्द्रको परिस्थिति अनुसार शुल्क लाग्न सक्छ।",
+      general:"सामान्य बालबालिका (कम आय भएका, लगभग गरिबीमा रहेका, अपाङ्गता भएका, बहुसांस्कृतिक, एकल अभिभावक वा हजुरआमा-हजुरबुबाले हुर्काएका परिवारका बालबालिकाबाहेक)",
+      services:[
+        "संरक्षण: दैनिक जीवन र सरसफाइ/स्वास्थ्य व्यवस्थापन, खाना, जीवन सुरक्षा र घर फर्कने मार्गदर्शन",
+        "शिक्षा: गृहकार्य र विषय सिकाइ मार्गदर्शन, विशेष प्रतिभा, चरित्र शिक्षा, करियर मार्गदर्शन आदि",
+        "संस्कृति: प्रयोगात्मक गतिविधि र सहभागितामूलक गतिविधि",
+        "भावना: बालबालिका र अभिभावक परामर्श, भावनात्मक सहयोग कार्यक्रम, अभिभावक शिक्षा",
+        "सामुदायिक सम्बन्ध: बालबालिकाको आवश्यकता अनुरूप सेवाको प्रवर्द्धन र सम्बन्ध",
+        "विस्तारित साँझको हेरचाह: 18:00 पछि सेवा चाहने प्राथमिक विद्यालयका बालबालिका",
+        "बिदाको समयको हेरचाह: स्कूल बिदामा सेवा चाहने प्राथमिक विद्यालयका बालबालिका"
+      ]
+    }
+  },
+
+  km: {
+    native:"ភាសាខ្មែរ", ko:"크메르어(캄보디아)",
+    title:"មជ្ឈមណ្ឌលកុមារសហគមន៍",
+    intro:"មជ្ឈមណ្ឌលកុមារក្នុងសហគមន៍ គឺជាគ្រឹះស្ថានសុខុមាលភាពកុមារដែលផ្តល់សេវាសុខុមាលភាពគ្របដណ្តប់ទាំងអស់ រួមមាន៖ ការពារ និងថែទាំ, ការអប់រំ, ការផ្តល់ការលេង និងការកម្សាន្តល្អៗ, ព្រមទាំងការភ្ជាប់ទំនាក់ទំនងរវាងអាណាព្យាបាល និងសហគមន៍ ដើម្បីការរីកចម្រើនប្រកបដោយសុខភាពល្អរបស់កុមារក្នុងសហគមន៍ដែលត្រូវការការថែទាំបន្ទាប់ពីម៉ោងសិក្សា។",
+    L:["អ្នកអាចប្រើប្រាស់បាន","អង្គភាពប្រតិបត្តិការ","ម៉ោងប្រើប្រាស់","តម្លៃ","សេវាកម្ម"],
+    v:{
+      elig:"កុមារអាយុក្រោម 18 ឆ្នាំ (រាប់បញ្ចូលទាំងកុមារជនបរទេស និងកុមារដែលគ្មានឯកសារ/គ្មានបញ្ជីឈ្មោះ)",
+      op:"មជ្ឈមណ្ឌលកុមារក្នុងសហគមន៍ដែលបានចុះបញ្ជីនៅ ក្រុង, ស្រុក, ខណ្ឌ",
+      opNote:"អ្នកអាចពិនិត្យមើលមជ្ឈមណ្ឌលកុមារក្នុងសហគមន៍នៅក្នុងតំបន់របស់អ្នកបាន តាមរយៈម៉ឺនុយ «ស្វែងរកទីតាំងគ្រឹះស្ថានថែទាំ» នៅលើគេហទំព័រ Government24 (plus.gov.kr)",
+      hours:"ម៉ោងប្រតិបត្តិការចាំបាច់ ក្នុងរដូវសិក្សា ម៉ោង 14:00 ដល់ 20:00 · ក្នុងរដូវវិស្សមកាល ម៉ោង 13:00 ដល់ 18:00",
+      fee:"ចូលប្រើប្រាស់ឥតគិតថ្លៃ",
+      feeNote:"ចំពោះកុមារទូទៅ ថ្លៃសេវាអាចនឹងត្រូវបង់ ដោយផ្អែកលើស្ថានភាពតំបន់ និងស្ថានភាពផ្ទាល់របស់មជ្ឈមណ្ឌល",
+      general:"កុមារទូទៅ (កុមារដែលមិនស្ថិតនៅក្នុងគ្រួសារដែលមានប្រាក់ចំណូលទាប, គ្រួសារប្រាក់ចំណូលទាបបន្ទាប់, គ្រួសារមានពិការភាព, គ្រួសារពហុវប្បធម៌, គ្រួសារឪពុកឬម្តាយទោល, និងគ្រួសាររស់នៅជាមួយជីដូនជីតា)",
+      services:[
+        "ការថែទាំ និងការការពារ: ការគ្រប់គ្រងជីវភាពរស់នៅប្រចាំថ្ងៃ និងអនាម័យសុខភាព, អាហារ, សុវត្ថិភាពក្នុងការរស់នៅ និងការណែនាំពេលត្រឡប់ទៅផ្ទះ",
+        "ការអប់រំ: ការណែនាំកិច្ចការផ្ទះ និងការរៀនតាមមុខវិជ្ជា, សមត្ថភាពពិសេស, ការអប់រំចរិយាសម្បត្តិ, ផ្លូវជីវិត/អាជីព",
+        "វប្បធម៌: សកម្មភាពបទពិសោធន៍ផ្ទាល់, សកម្មភាពចូលរួម",
+        "ផ្លូវចិត្ត/អារម្មណ៍: ការប្រឹក្សាយោបល់កុមារ និងមាតាបិតា, កម្មវិធីគាំទ្រផ្លូវចិត្ត, ការអប់រំមាតាបិតា",
+        "ការភ្ជាប់ទំនាក់ទំនងជាមួយសហគមន៍មូលដ្ឋាន: ការផ្សព្វផ្សាយ និងការភ្ជាប់សេវាកម្មដែលឆ្លើយតបទៅនឹងតម្រូវការរបស់កុមារ",
+        "ការថែទាំបន្ថែមពេលយប់: កុមារបឋមសិក្សាដែលបំណងប្រើប្រាស់សេវាកម្មចាប់ពីម៉ោង 18:00 យប់ឡើងទៅ",
+        "ការថែទាំចន្លោះពេល/បន្ថែម: កុមារបឋមសិក្សាដែលមានបំណងប្រើប្រាស់សេវាកម្មកំឡុងពេលវិស្សមកាល"
+      ]
+    }
+  },
+
+  ru: {
+    native:"Русский", ko:"러시아어",
+    title:"Центр помощи детям",
+    intro:"Региональный детский центр обеспечивает заботу и обучение детей, организует полезные игры и досуг, а также взаимодействует с родителями и местными общественными организациями с целью всестороннего развития и благополучия детей.",
+    L:["Кому доступно","Организация","Время работы","Стоимость","Услуги"],
+    v:{
+      elig:"Дети младше 18 лет (в том числе иностранные дети и дети, не имеющие официального статуса пребывания/регистрации).",
+      op:"Региональные детские центры, зарегистрированные в городских, уездных или районных органах власти.",
+      opNote:"Найти региональный детский центр в вашем районе можно через (정부24) → раздел поиска учреждений по уходу и присмотру за детьми: https://plus.gov.kr/",
+      hours:"Время работы: в период учёбы 14:00–20:00 · во время каникул 13:00–18:00",
+      fee:"Бесплатно.",
+      feeNote:"Для детей, не относящихся к категории нуждающихся в особой поддержке, в зависимости от местных условий и возможностей конкретного центра может взиматься плата.",
+      general:"Обычные дети (дети из семей, которые не относятся к малообеспеченным, семьям, находящимся на уровне ниже среднего дохода, семьям с людьми с инвалидностью, многокультурным семьям, семьям с одним родителем или семьям, состоящим из бабушек/дедушек и внуков).",
+      services:[
+        "Забота и защита: помощь в повседневной жизни, контроль гигиены и состояния здоровья, питание, обеспечение безопасности, сопровождение ребёнка домой",
+        "Образование: помощь с домашними заданиями, помощь в изучении школьных предметов, занятия по интересам и развитие способностей, воспитание и формирование личностных качеств, профориентация",
+        "Культура: различные познавательные и культурные мероприятия, мероприятия с участием детей",
+        "Эмоциональная поддержка: консультации для детей и родителей, программы эмоциональной поддержки, обучение и консультирование родителей",
+        "Связь с общественными организациями: информирование и направление ребёнка к необходимым услугам в соответствии с его потребностями",
+        "Продлённый вечерний присмотр: для детей младшего школьного возраста, которым требуется пребывание в центре после 18:00",
+        "Дополнительный присмотр на каникулах: для детей младшего школьного возраста, которым необходимо посещение центра во время школьных каникул"
+      ]
+    }
+  },
+
+  zh: {
+    native:"中文", ko:"중국어",
+    title:"社区儿童中心",
+    intro:"社区儿童中心为需要课后照料的当地儿童提供全面的服务、保护和教育，提供健康的玩耍和娱乐，协助监护人与当地社区建立联系的儿童福利机构。",
+    L:["适用对象","运营机构","使用时间","费用","服务内容"],
+    v:{
+      elig:"满18岁以下的儿童（包括外国人，未登记的儿童）",
+      op:"在市、郡、区登记的社区儿童中心",
+      opNote:"可以通过政府24(plus.gov.kr)官网查询所在区域的社区儿童中心。",
+      hours:"必要营业时间：学期期间 14:00~20:00 · 放假期间 13:00~18:00",
+      fee:"免费",
+      feeNote:"（对于普通儿童，可能会根据当地条件以及中心的具体情况收取费用）",
+      general:"普通儿童（不属于低收入家庭、次低收入家庭、残障儿童、多文化儿童、单亲家庭、祖孙家庭的儿童）",
+      services:[
+        "保护（日常生活及卫生健康管理、供餐、生活安全及归家指引）",
+        "教育（作业及课程学习指导、特长天赋、人生教育、前途等）",
+        "文化（体验活动、参与活动）",
+        "情绪（儿童及父母商谈、情感支持课题、父母教育）",
+        "社区联接（针对儿童需求量身定制的推广与对接服务）",
+        "夜间延时照护（希望在下午18:00以后使用的小学生）",
+        "假期照护（希望在放假期间使用的小学生）"
+      ]
+    }
+  },
+
+  uz: {
+    native:"O'zbekcha", ko:"우즈베크어",
+    title:"Hududiy bolalar markazi",
+    intro:"Hududiy bolalar markazi — maktabdan tashqari vaqtda qarov va nazoratga muhtoj bo'lgan mahalliy bolalarning sog'lom rivojlanishini ta'minlash maqsadida ularni himoya qilish va ta'lim berish, xavfsiz o'yin hamda hordiq chiqarish imkoniyatlarini yaratish, shuningdek, ota-onalar va mahalliy hamjamiyat bilan hamkorlik qilish kabi turli xil xizmatlarni ko'rsatuvchi bolalar farovonligini ta'minlash muassasasidir.",
+    L:["Foydalanish huquqiga ega bo'lganlar","Boshqaruv muassasasi","Foydalanish vaqti","Foydalanish to'lovi","Xizmatlar"],
+    v:{
+      elig:"18 yoshga to'lmagan bolalar (chet el fuqarolari va ro'yxatdan o'tmagan bolalar ham kiritiladi)",
+      op:"Shahar, tuman va viloyatlarda ro'yxatdan o'tgan hududiy bolalar markazlari",
+      opNote:"Gov24 (plus.gov.kr) saytidagi qarov muassasalari joylashuvini qidirish menyusi orqali o'z hududingizdagi bolalar markazini topishingiz mumkin.",
+      hours:"Majburiy faoliyat yuritish vaqti: o'quv yili davomida 14:00~20:00 · ta'til davrida 13:00~18:00",
+      fee:"Bepul",
+      feeNote:"Umumiy toifadagi bolalar uchun hududiy sharoit va markaz holatidan kelib chiqib haq olinishi mumkin.",
+      general:"Umumiy toifadagi bolalar (kam ta'minlangan oilalar, ijtimoiy himoyaga muhtoj oilalar, nogironligi bo'lgan shaxslar oilalari, ko'p madaniyatli oilalar, yolg'iz ota yoki onali oilalar hamda bobo-buvilari bilan yashovchi oilalarga kirmaydigan oilalarning farzandlari)",
+      services:[
+        "Himoya: kundalik hayot va gigiyena-salomatlikni boshqarish, ovqatlanish, kundalik xavfsizlikni ta'minlash va uyga qaytishni nazorat qilish",
+        "Ta'lim: uy vazifalari va fanlarni o'zlashtirishga ko'maklashish, qobiliyat va qiziqishlarni rivojlantirish, odob-axloq tarbiyasi, kasbga yo'naltirish va boshqalar",
+        "Madaniyat: amaliy tushuntirish ishlari, ishtirok etish faoliyatlari",
+        "Ruhiy qo'llab-quvvatlash: bolalar va ota-onalar bilan maslahatlashuv, ruhiy qo'llab-quvvatlash dasturlari, ota-onalar uchun ta'lim",
+        "Mahalliy hamjamiyat bilan hamkorlik: axborot va targ'ibot ishlari hamda bolalarning ehtiyojlariga mos xizmatlar bilan bog'lash",
+        "Kechki soatlargacha parvarish xizmati: 18:00 dan keyin foydalanishni istagan boshlang'ich maktab yoshidagi bolalar uchun",
+        "Ta'til davrida qo'shimcha parvarish: ta'til vaqtida foydalanishni istagan boshlang'ich maktab yoshidagi bolalar uchun"
+      ]
+    }
+  },
+
+  ja: {
+    native:"日本語", ko:"일본어",
+    title:"地域児童センター",
+    intro:"地域児童センターは放課後のみ守りや支援が必要な地域の子どもたちが、健やかに成長できるように、様々な支援を行う児童福祉施設です。",
+    L:["対象","運営機関","利用時間","利用料","サービス内容"],
+    v:{
+      elig:"満18歳未満の子ども（外国籍の子ども、未登録の子どもを含む）",
+      op:"市・郡・区に登録された地域児童センター",
+      opNote:"政府24(plus.gov.kr)の「保育・ケア施設などの位置検索」から、お住まいの地域の地域児童センターを確認することができます。",
+      hours:"必須運営時間　学期中　14:00～20:00 ・ 長期休暇中　13:00～18:00",
+      fee:"無料",
+      feeNote:"（一般児童の場合、地域の状況やセンターの事情により、利用料が発生する場合があります。）",
+      general:"一般児童（低所得世帯、次上位階層、障害者家庭、多文化家庭、ひとり親家庭、祖父母と同居する家庭等に該当しない家庭の児童）",
+      services:[
+        "保護（日常生活の見守り、衛生・健康管理、食事の提供、生活上の安全管理、帰宅時の指導など）",
+        "教育（宿題や教科学習の指導、特技・適性を伸ばす活動、人間性教育、進路指導など）",
+        "文化（体験活動、さまざまな参加活動）",
+        "情緒支援（子どもや保護者への相談支援、情緒支援プログラム、保護者教育など）",
+        "地域社会との連携（広報、子どものニーズにあった各種サービスとの連携など）",
+        "夜間延長保育（18:00以降の利用を希望する小学生対象）",
+        "長期休暇中の利用（長期休暇中の利用を希望する小学生対象）"
+      ]
+    }
+  },
+
+  id: {
+    native:"Bahasa Indonesia", ko:"인도네시아어",
+    title:"Pusat Kesejahteraan Anak Terpadu",
+    intro:"Pusat Kesejahteraan Anak Terpadu adalah fasilitas sosial anak yang menyediakan layanan komprehensif bagi anak yang membutuhkan pengasuhan setelah jam sekolah. Layanan meliputi perlindungan, edukasi, kegiatan bermain serta hiburan yang sehat serta menghubungkan orangtua/wali dengan berbagai layanan sosial serta komunitas lokal.",
+    L:["Kriteria Pengguna","Lembaga Penyelenggara","Jam Operasional Wajib","Biaya Layanan","Rincian Layanan"],
+    v:{
+      elig:"Anak di bawah usia 18 tahun (termasuk anak berkewarganegaraan asing dan anak tanpa izin tinggal yang sah)",
+      op:"Pusat Pengasuhan Anak Terpadu yang terdaftar pada kota, kecamatan, kabupaten setempat",
+      opNote:"Pusat Kesejahteraan Anak Terpadu di daerah tempat tinggal dapat dicari melalui situs Gov24 (plus.gov.kr) pada menu pencarian lokasi fasilitas pengasuhan anak.",
+      hours:"Periode masuk sekolah pukul 14:00–20:00 · Periode liburan sekolah pukul 13:00–18:00",
+      fee:"Gratis",
+      feeNote:"Anak kategori umum dapat dikenakan biaya dengan mempertimbangkan kondisi serta kebijakan pusat masing-masing.",
+      general:"Anak di luar kategori keluarga berpenghasilan rendah, anak penyandang disabilitas, anak dari keluarga multikultural, anak pengasuhan orang tua tunggal, serta pengasuhan kakek/nenek.",
+      services:[
+        "Perlindungan: pendampingan kegiatan sehari-hari, manajemen kesehatan dan kebersihan diri, penyediaan makanan, keselamatan sehari-hari serta pendampingan kepulangan",
+        "Pendidikan: pendampingan pekerjaan rumah dan tugas sekolah, bakat dan minat, pendidikan karakter, pendampingan pemilihan karier, dll.",
+        "Budaya: kegiatan eksperimental, dll.",
+        "Dukungan emosional: layanan konseling anak dan orang tua, program dukungan emosional, edukasi orang tua",
+        "Keterhubungan dengan komunitas lokal: penyediaan koneksi serta informasi layanan daerah setempat yang sesuai dengan kebutuhan anak",
+        "Pengasuhan malam hari: pengasuhan tambahan setelah pukul 18:00 bagi siswa sekolah dasar yang membutuhkan",
+        "Pengasuhan saat liburan sekolah: pengasuhan tambahan selama masa libur sekolah bagi siswa sekolah dasar yang membutuhkan"
+      ]
+    }
+  },
+
+  vi: {
+    native:"Tiếng Việt", ko:"베트남어",
+    title:"Trung tâm trẻ em địa phương",
+    intro:"Trung tâm trẻ em địa phương là cơ sở phúc lợi trẻ em cung cấp các dịch vụ phúc lợi tổng hợp như chăm sóc, giáo dục, tổ chức các hoạt động vui chơi, giải trí lành mạnh và kết nối với cộng đồng cùng người giám hộ, nhằm hỗ trợ sự phát triển lành mạnh của trẻ em trong cộng đồng có nhu cầu được chăm sóc sau giờ học.",
+    L:["Đối tượng sử dụng","Đơn vị vận hành","Thời gian sử dụng","Phí sử dụng dịch vụ","Nội dung dịch vụ"],
+    v:{
+      elig:"Trẻ em dưới 18 tuổi (bao gồm cả trẻ em người nước ngoài và trẻ em chưa đăng ký/không có giấy tờ hợp lệ).",
+      op:"Trung tâm trẻ em địa phương đã được đăng ký tại thành phố/quận/huyện.",
+      opNote:"Có thể vào Government24 (plus.gov.kr) để tìm và kiểm tra trung tâm trẻ em địa phương gần nơi mình ở.",
+      hours:"Thời gian hoạt động bắt buộc · Trong học kỳ 14:00–20:00 · Trong kỳ nghỉ 13:00–18:00",
+      fee:"Miễn phí",
+      feeNote:"Đối với trẻ em thông thường, tùy theo điều kiện của địa phương và tình hình của trung tâm có thể phát sinh chi phí sử dụng.",
+      general:"Trẻ em thuộc diện thông thường (trẻ em không thuộc hộ nghèo, hộ cận nghèo, gia đình có người khuyết tật, gia đình đa văn hóa, gia đình đơn thân, gia đình ông bà nuôi cháu)",
+      services:[
+        "Bảo hộ: chăm sóc trẻ trong sinh hoạt hằng ngày, quản lý vệ sinh và sức khỏe, cung cấp bữa ăn, đảm bảo an toàn và hướng dẫn trẻ về nhà",
+        "Giáo dục: hướng dẫn làm bài tập và học các môn học, phát triển năng khiếu, giáo dục nhân cách và định hướng nghề nghiệp",
+        "Hoạt động văn hóa: các hoạt động trải nghiệm và các hoạt động tham gia",
+        "Hỗ trợ tâm lý cảm xúc: tư vấn cho trẻ và phụ huynh, các chương trình hỗ trợ tâm lý cảm xúc và giáo dục phụ huynh",
+        "Kết nối cộng đồng: tuyên truyền, cung cấp thông tin và kết nối trẻ với các dịch vụ phù hợp với nhu cầu của trẻ",
+        "Dịch vụ chăm sóc kéo dài buổi tối: dành cho học sinh tiểu học có nhu cầu sử dụng trung tâm sau 18:00",
+        "Dịch vụ chăm sóc bổ sung: trong kỳ nghỉ dành cho học sinh tiểu học có nhu cầu sử dụng trung tâm"
+      ]
+    }
+  },
+
+  tl: {
+    native:"Filipino", ko:"필리핀어(타갈로그)",
+    title:"Lokal na Children's Center",
+    intro:"Ang local children's center ay isang child welfare center na naglalayong magbigay ng integradong welfare services na tumutulong sa malusog na paglaki ng mga batang nangangailangan ng after-school childcare sa lokal na komunidad. Ang center ay nagbibigay ng proteksyon at edukasyon, ligtas at maayos na paglalaro at paglibang; at interaksyon sa komunidad para sa mga tagapag-alaga ng mga bata.",
+    L:["Sino ang maaaring gumamit","Mga nagpapatakbo","Oras ng operasyon","Bayad sa paggamit","Detalye ng serbisyo"],
+    v:{
+      elig:"Mga batang 18 taong gulang pababa (kabilang ang mga batang dayuhan at mga batang hindi naka-rehistro sa sistema)",
+      op:"Mga local children's center na nakarehistro sa lungsod, county, o distrito",
+      opNote:"Maaaring tingnan ang mga childcare center at lokasyon nito sa childcare center and location menu ng Gov24 website (plus.gov.kr).",
+      hours:"Mga nakatakdang oras ng operasyon · Kapag may pasok 14:00–20:00 · Tuwing bakasyon 13:00–18:00",
+      fee:"Libre",
+      feeNote:"Maaaring magkaroon ng bayad ang mga regular na bata depende sa kalagayan ng lugar at sitwasyon ng center.",
+      general:"Karaniwang mga bata (mga batang hindi kabilang sa mga pamilyang low-income, near-poverty, may kapansanan, multikultural, single-parent, o galing sa pamilyang pinamumunuan ng lolo at lola)",
+      services:[
+        "Proteksyon: pang-araw-araw na pamumuhay, personal na kalinisan, pagkain, pang-araw-araw na kaligtasan at gabay sa pag-uwi",
+        "Edukasyon: takdang-aralin at gabay sa pag-aaral ng mga asignatura, espesyal na kakayahan, edukasyon sa pagkatao, gabay sa karera",
+        "Kultura: mga hands-on na gawain at mga interactive na gawain",
+        "Emosyonal na suporta: konsultasyon para sa bata at magulang, mga programang suporta sa emosyon, at edukasyon para sa mga magulang",
+        "Interaksyon sa komunidad: promosyon at pag-uugnay sa tamang serbisyo ayon sa pangangailangan ng bata",
+        "Extended na pangangalaga sa gabi: para sa mga elementary student na nangangailangan ng childcare lampas 6pm",
+        "Flexible na pangangalaga: para sa mga elementary student na nangangailangan ng childcare tuwing bakasyon"
+      ]
+    }
+  },
+
+  en: {
+    native:"English", ko:"영어",
+    title:"Local Children's Center",
+    intro:"The local children's center is a child welfare center that aims to provide integrated welfare services that foster healthy child development for the children in the local community who need after-school care. The center offers protection and education, healthy play and entertainment; and community engagement for their guardians.",
+    L:["Eligibility","Operating agency","Operation hours","Usage fees","Details of the service"],
+    v:{
+      elig:"Children 18 years old and under (including children with foreign background and those currently not registered in the system)",
+      op:"Centers registered with the city, county, or district",
+      opNote:"You can verify the childcare centers and their locations from the childcare center and location menu of the Gov24 website (plus.gov.kr).",
+      hours:"Required hours of operation · School term 14:00–20:00 · Vacation 13:00–18:00",
+      fee:"Free",
+      feeNote:"Usage fees may occur for regular children depending on the area's consideration and center's circumstances.",
+      general:"Children from non-vulnerable households (children who come from households that aren't low-income, near-poverty, disabled, multicultural, single-parent, or grandparent-headed households)",
+      services:[
+        "Protection: daily living and hygiene and health maintenance, meals, everyday safety and guidance on returning home",
+        "Education: homework and guidance on learning subjects, special aptitude, character education, career guidance, etc.",
+        "Culture: hands-on activities, interactive activities",
+        "Emotional support: child and parent counselling, emotional support programs, parent education",
+        "Community engagement: promotion and connection to the right services according to the child's needs",
+        "Late-night extension childcare: offered to elementary students who need childcare beyond 6pm",
+        "Flexible childcare: offered to elementary students who need childcare during school vacations"
+      ]
+    }
+  }
+};
+
+/* ===== 화면 만들기 ===== */
+function esc(s){ return s; }
+
+function buildFlags(){
+  const nav = document.getElementById("flags");
+  nav.innerHTML = "";
+  FLAGS.forEach(f => {
+    const a = document.createElement("a");
+    a.className = "flag";
+    a.href = "#" + f.id;
+    a.title = f.ko;
+    a.innerHTML =
+      '<img src="https://flagcdn.com/w160/' + f.flag + '.png" ' +
+      'srcset="https://flagcdn.com/w320/' + f.flag + '.png 2x" ' +
+      'alt="' + f.ko + ' 국기" width="40" loading="lazy">' +
+      '<span>' + f.ko + '</span>';
+    nav.appendChild(a);
+  });
+}
+
+/* 한 나라(또는 한국어) 페이지 본문 */
+function pageFor(id){
+  const isKo = (id === "ko");
+  const data = isKo
+    ? { title:"지역아동센터", intro:KO.intro, L:KO_LABELS, v:KO, native:"", ko:"" }
+    : C[id];
+
+  const showKo = false;            // 외국어 페이지에는 한국어를 표시하지 않음
+  const koLine = (txt) => showKo && txt ? `<span class="ko"><span class="ko-tag">한국어</span>${txt}</span>` : "";
+
+  // 1) 머리글
+  const head = isKo
+    ? `<section class="hero">
+         <span class="kicker">아동복지시설</span>
+         <h1>${data.title}</h1>
+         <p class="lead">${data.intro}</p>
+       </section>`
+    : `<a class="back" href="#ko" aria-label="Korean"><img src="https://flagcdn.com/w40/kr.png" alt="" style="width:22px;vertical-align:middle;border-radius:3px;margin-right:6px">←</a>
+       <div class="lang-head">
+         <img src="https://flagcdn.com/w320/${FLAGS.find(f=>f.id===id).flag}.png" alt="${data.native}">
+         <div>
+           <h1>${data.title}</h1>
+           <div class="sub">${data.native} · ${data.ko}</div>
+         </div>
+       </div>
+       <p class="intro">${data.intro}</p>
+       ${showKo ? `<p class="intro" style="border-left-color:#8a98a8;font-size:14px;color:#5b6b7d"><span class="ko-tag">한국어</span>${KO.intro}</p>` : ""}`;
+
+  // 2) 이용대상 · 운영기관 · 이용시간 · 이용료
+  const cards = `
+    <div class="grid">
+      <div class="card">
+        <h3>${data.L[0]}${showKo ? ' <span style="font-weight:400;color:#8a98a8">(이용대상)</span>' : ""}</h3>
+        <p>${data.v.elig}</p>
+        ${koLine(KO.elig)}
+      </div>
+
+      <div class="card">
+        <h3>${data.L[1]}${showKo ? ' <span style="font-weight:400;color:#8a98a8">(운영기관)</span>' : ""}</h3>
+        <p>${data.v.op}</p>
+        ${koLine(KO.op)}
+        <p style="margin-top:10px;font-size:14px;color:var(--sub)">${data.v.opNote}</p>
+        ${koLine(KO.opNote)}
+      </div>
+
+      <div class="card">
+        <h3>${data.L[2]}${showKo ? ' <span style="font-weight:400;color:#8a98a8">(이용시간)</span>' : ""}</h3>
+        <p>${data.v.hours}</p>
+        ${koLine(KO.hours)}
+      </div>
+
+      <div class="card">
+        <h3>${data.L[3]}${showKo ? ' <span style="font-weight:400;color:#8a98a8">(이용료)</span>' : ""}</h3>
+        <p><b>${data.v.fee}</b></p>
+        <p style="font-size:14px;color:var(--sub)">${data.v.feeNote}</p>
+        <p style="margin-top:10px;font-size:14px;color:var(--sub)">${data.v.general}</p>
+        ${koLine(KO.fee + " · " + KO.feeNote + " " + KO.general)}
+      </div>
+    </div>`;
+
+  // 3) 서비스내용
+  const svcTitle = `<h2>${data.L[4]}${showKo ? ' <span style="font-size:14px;color:#8a98a8;font-weight:400">(서비스내용)</span>' : ""}</h2>`;
+  const svcItems = data.v.services.map((s, i) => {
+    const m = s.match(/^([^:(（]+)([:(（])(.*)$/);
+    const name = m ? m[1] : "";
+    const rest = m ? (m[2] === ":" ? m[3] : m[2] + m[3]) : s;
+    const body = m ? `<span class="name">${name}</span>: ${rest}` : s;
+    return `<li><span class="loc">${body}</span>${showKo ? `<span class="ko"><span class="ko-tag">한국어</span>${KO.services[i]}</span>` : ""}</li>`;
+  }).join("");
+
+  const svc = `${svcTitle}<ul class="svc">${svcItems}</ul>`;
+
+  // 4) 정부24 바로가기
+  const link = `<div class="card" style="margin-top:18px">
+      ${isKo ? '<p>정부24(plus.gov.kr) · 돌봄시설 등 위치 찾기에서 우리 동네 센터를 확인하세요.</p>' : ''}
+      <a class="btn" href="https://plus.gov.kr/" target="_blank" rel="noopener">plus.gov.kr${isKo ? ' 바로가기' : ''}</a>
+    </div>`;
+
+  return head + cards + svc + link;
+}
+
+/* ===== 화면 전환 ===== */
+function render(){
+  let id = (location.hash || "#ko").slice(1);
+  if (id !== "ko" && !C[id]) id = "ko";
+
+  document.querySelectorAll(".flag").forEach(a => {
+    a.setAttribute("aria-current", a.getAttribute("href") === "#" + id ? "true" : "false");
+  });
+
+  document.getElementById("app").innerHTML = pageFor(id);
+  document.getElementById("footer").style.display = (id === "ko") ? "" : "none";
+  document.documentElement.lang = (id === "ko") ? "ko" : id;
+  window.scrollTo(0, 0);
+}
+
+buildFlags();
+window.addEventListener("hashchange", render);
+render();
+</script>
+</body>
+</html>
