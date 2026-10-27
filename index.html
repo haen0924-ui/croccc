@@ -218,6 +218,11 @@ h2{
 .svc .loc{color:var(--ink)}
 .svc .row{display:grid;grid-template-columns:auto 1fr;column-gap:6px;align-items:start}
 .svc .desc{min-width:0}
+/* 휴대폰: 제목은 한 줄, 내용은 그 아래 전체 너비로 */
+@media (max-width:640px){
+  .svc .row{display:block}
+  .svc .name{display:block;margin-bottom:2px}
+}
 .svc .name{font-weight:700;color:var(--brand-dark)}
 .btn{
   display:inline-block;
